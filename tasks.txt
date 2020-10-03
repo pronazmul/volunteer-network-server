@@ -1,0 +1,87 @@
+Commands: 
+        npm init
+        npm install express mongodb body-parser cors dotenv
+        npm install nodemon --save-dev
+
+Initialize NOde & MongoDB, Test Run...
+
+        const express = require('express')
+        const app = express()
+        const bodyParser = require('body-parser')
+        const cors = require('cors')
+        const MongoClient = require('mongodb').MongoClient
+        const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.mx72a.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
+        const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true})
+
+        app.use(cors())
+        app.use(bodyParser.json())
+        require('dotenv').config()
+
+        client.connect(err => {
+        const collection = client.db(process.env.DB_NAME).collection("volunteer-tasks")
+            console.log("Database Connected Successfully")
+        client.close()
+        })
+
+        app.get('/',(req,res)=>res.send("Welcome Software Developer"))
+
+        app.listen(process.env.PORT)
+
+@ Logos Links
+
+        https://i.ibb.co/MR2ZvS3/trash.png
+        https://i.ibb.co/LQXw7mx/upload.png
+        https://i.ibb.co/Jc6ZbLQ/users.png
+        https://i.ibb.co/fYcgC8L/add.png
+        https://i.ibb.co/GQYn4Tp/logo.png
+        https://i.ibb.co/pWK9ZQj/banner.jpg
+
+@ Volunteer Task Images Links.....
+
+        https://i.ibb.co/qkmzNBD/library-Books.png
+        https://i.ibb.co/mRW85Kq/music-Lessons.png
+        https://i.ibb.co/PMBkG3D/newBooks.png
+        https://i.ibb.co/ftTcjJD/refuse-Shelter.png
+        https://i.ibb.co/tHwc6Jr/river-Clean.png
+        https://i.ibb.co/qgZtMY6/school-Suffiles.png
+        https://i.ibb.co/r31TLNw/study-Group.png
+        https://i.ibb.co/3Cnv5gw/stuffed-Animals.png
+        https://i.ibb.co/FsCz7HH/vote-Register.png
+        https://i.ibb.co/zVjW37Y/animal-Shelter.png
+        https://i.ibb.co/wzvXtHZ/babySit.png
+        https://i.ibb.co/dPT0SYG/bird-House.png
+        https://i.ibb.co/FhZ5rN5/child-Support.png
+        https://i.ibb.co/BnRhBxM/clean-Water.png
+        https://i.ibb.co/2tMv0dR/clearn-Park.png
+        https://i.ibb.co/SXFHRyz/cloth-Swap.png
+        https://i.ibb.co/XpyCYGS/drive-Safety.png
+        https://i.ibb.co/S6J1TPK/extra-Volunteer.png
+        https://i.ibb.co/bKKn2PT/food-Charity.png
+        https://i.ibb.co/NtJspsT/good-Education.png
+        https://i.ibb.co/xLNg91H/ITHelp.png
+
+@Fake Data Demo
+
+const fakeData = [
+    {task:"Organize books at the library", image:"https://i.ibb.co/qkmzNBD/library-Books.png"},
+    {task:"Give free music Lessons", image:"https://i.ibb.co/mRW85Kq/music-Lessons.png"},
+    {task:"New books for children", image:"https://i.ibb.co/PMBkG3D/newBooks.png"},
+    {task:"Refuse Shelter", image:"https://i.ibb.co/ftTcjJD/refuse-Shelter.png"},
+    {task:"Host a river clean-up", image:"https://i.ibb.co/tHwc6Jr/river-Clean.png"},
+    {task:"Collect school supplies", image:"https://i.ibb.co/qgZtMY6/school-Suffiles.png"},
+    {task:"Host a study group", image:"https://i.ibb.co/r31TLNw/study-Group.png"},
+    {task:"Collect stuffed animals", image:"https://i.ibb.co/3Cnv5gw/stuffed-Animals.png"},
+    {task:"Teach people how to register to vote", image:"https://i.ibb.co/FsCz7HH/vote-Register.png"},
+    {task:"Foster a shelter animal", image:"https://i.ibb.co/zVjW37Y/animal-Shelter.png"},
+    {task:"Babysit during PTA meetings", image:"https://i.ibb.co/wzvXtHZ/babySit.png"},
+    {task:"Build birdhouses for your nightbors", image:"https://i.ibb.co/dPT0SYG/bird-House.png"},
+    {task:"Chield support", image:"https://i.ibb.co/FhZ5rN5/child-Support.png"},
+    {task:"Clean water for children", image:"https://i.ibb.co/BnRhBxM/clean-Water.png"},
+    {task:"Clean up your local park", image:"https://i.ibb.co/2tMv0dR/clearn-Park.png"},
+    {task:"Host a clothing swap", image:"https://i.ibb.co/SXFHRyz/cloth-Swap.png"},
+    {task:"Give a saminer of driving safety", image:"https://i.ibb.co/XpyCYGS/drive-Safety.png"},
+    {task:"food Charity", image:"https://i.ibb.co/bKKn2PT/food-Charity.png"},
+    {task:"Good education", image:"https://i.ibb.co/NtJspsT/good-Education.png"},
+    {task:"Give IT help to local adults", image:"https://i.ibb.co/xLNg91H/ITHelp.png"}
+]
+    
