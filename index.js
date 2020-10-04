@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const PORT = 5000
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const MongoClient = require('mongodb').MongoClient
@@ -56,8 +57,8 @@ client.connect(err => {
 })
 
 
-app.get('/',(req,res)=>res.send("Welcome Software Developer"))
+app.get('/',(req,res)=>res.send("Welcome Developer Nazmul"))
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT || PORT)
 
 
